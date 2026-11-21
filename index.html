@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#161e18">
+  <meta name="description" content="Defendé tu huerta. Cargá la honda, lanzá plantas y resistí las hordas de espantajos en 20 niveles.">
+  <link rel="icon" href="./assets/brote.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/pradera.webp" as="image">
+  <link rel="preload" href="./assets/bricolage.ttf" as="font" type="font/ttf" crossorigin>
+  <title>Brote Bravo · Defensa de la huerta</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="bar-inner">
+      <div class="brand" aria-label="Brote Bravo"><img src="./assets/brote.svg" width="42" height="42" alt=""><span>BROTE<b>BRAVO</b></span></div>
+      <nav aria-label="Juego">
+        <button id="nav-game" class="nav-item current" aria-current="page"><i data-icon="gamepad"></i><span>Jugar</span></button>
+        <button id="nav-campaign" class="nav-item"><i data-icon="map"></i><span>Campaña</span></button>
+        <button id="nav-story" class="nav-item"><i data-icon="chat"></i><span>Historia</span></button>
+        <button id="nav-guide" class="nav-item"><i data-icon="book"></i><span>Cómo jugar</span></button>
+      </nav>
+      <div class="tools"><button id="sound" class="icon-button" aria-label="Silenciar sonido" title="Silenciar sonido"><i data-icon="sound"></i></button><button id="fullscreen" class="icon-button" aria-label="Pantalla completa" title="Pantalla completa"><i data-icon="expand"></i></button></div>
+    </div>
+  </header>
+  <main class="shell">
+    <div class="mission">
+      <div><div class="eyebrow"><i data-icon="flag"></i><span>CAMPAÑA</span><span class="slash">/</span><span id="level-label">NIVEL 01 DE 20</span></div><h1 id="level-name">El primer brote</h1></div>
+      <button id="action" class="primary" disabled><i data-icon="play"></i><span>Iniciar horda</span></button>
+    </div>
+    <section id="arena" class="arena" aria-label="Campo de juego con cinco carriles">
+      <div id="world" tabindex="0" role="application" aria-label="Honda. Tirá hacia atrás y soltá. Con teclado, ajustá con las flechas y soltá la barra espaciadora para lanzar."></div>
+      <div class="arena-hud">
+        <div class="vitals">
+          <div class="hud-chip" title="Energía para lanzar plantas"><i class="hud-sun" data-icon="sun"></i><div><small>ENERGÍA</small><strong id="energy">240</strong></div></div>
+          <div class="hud-chip" title="Vidas de la huerta"><i class="hud-heart" data-icon="heart"></i><div><small>VIDAS</small><strong id="lives">5</strong></div></div>
+        </div>
+        <div class="weather-wave"><div id="wind-chip" class="wind-chip" title="La flecha indica hacia dónde sopla el viento"><i id="wind-arrow" data-icon="wind"></i><div><small>VIENTO</small><strong id="wind">Calma</strong></div></div>
+        <div class="wave-chip"><div><i data-icon="horde"></i><b>HORDA <span id="wave">1 / 2</span></b></div><span class="wave-track" role="progressbar" aria-label="Progreso de la horda" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="wave-fill"></span></span></div></div>
+      </div>
+      <div id="field-tip" class="field-tip"><i data-icon="gesture"></i><span>Arrastrá la honda y soltá para plantar</span></div>
+      <div id="toast" class="toast" role="status" hidden></div>
+      <noscript><p class="error">Activá JavaScript para jugar.</p></noscript>
+    </section>
+    <section class="deck" aria-labelledby="deck-title">
+      <div class="deck-heading"><h2 id="deck-title"><i data-icon="layers"></i>Arsenal vegetal</h2><span>Elegí una planta para cargar la honda</span></div>
+      <div id="cards" class="cards"></div>
+    </section>
+  </main>
+  <dialog id="dialog" aria-labelledby="dialog-title"><div class="dialog-inner"><button class="close icon-button" id="close" aria-label="Cerrar"><i data-icon="close"></i></button><div id="dialog-content"></div></div></dialog>
+  <dialog id="story-dialog" aria-labelledby="story-title"></dialog>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
